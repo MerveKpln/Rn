@@ -1,11 +1,11 @@
 
 import React, { useEffect } from 'react';
-import {View, Text,Button} from "react-native";
+import {View, Text,Button, TouchableOpacity} from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack"
 
 const Stack = createNativeStackNavigator();
-function HomeScreen({ navigation }: {navigation: any}) {
+function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
@@ -26,7 +26,7 @@ function HomeScreen({ navigation }: {navigation: any}) {
     </View>
 );}
 
-  function UserScreen({route, navigation }: {navigation: any, route: any}){
+  function UserScreen({route, navigation }){
     console.log("Navigasyon", navigation);
 
     useEffect(()=>{
@@ -44,7 +44,16 @@ function HomeScreen({ navigation }: {navigation: any}) {
     </View>
   )}
 
-function OtherScreen({ route, navigation }: {navigation: any, route: any}){
+function OtherScreen({ route, navigation }){
+useEffect(()=> {
+  navigation.setOptions({title: "Test Page",
+  headerStyle:{
+    backgroundColor:"#000",
+    shadowColor:'transparent'
+  }})
+},[])
+
+
   const {itemId,otherParam}=route.params;
   return (<View style={{
     flex:1, 
@@ -68,8 +77,52 @@ const App =()=>{
   return(
    <NavigationContainer>
     <Stack.Navigator  initialRouteName="Home">
-      <Stack.Screen name="Home"  options={{ title: 'Home Page' }} component={HomeScreen} />
-      <Stack.Screen name="User"  options={{ title: 'User Page' }} component={UserScreen} />
+      <Stack.Screen name="Home" 
+       options={ (route, navigation)=>({
+          title:'Home Page',
+          headerTitleAlign:'center',
+          headerTintColor: "#ffff", 
+          headerStyle:{
+            backgroundColor:"#000",
+            shadowColor :'transparent'
+          },
+          headerTitleStyle:{
+            fontWeight:"bold",
+            fontSize :30
+          }
+        })}
+       
+       component={HomeScreen} />
+      <Stack.Screen name="User" options={ ({route, navigation})=>({
+          title:'Home Page',
+          headerTitleAlign:'center',
+          headerTintColor: "#ffff", 
+          headerStyle:{
+            backgroundColor:"#000",
+            shadowColor :'transparent'
+          },
+          headerTitleStyle:{
+            fontWeight:"bold",
+            fontSize :30
+          },
+          headerLeft:()=>{
+            return(
+              <View style={{marginLeft:10}}>
+                <Button onPress={()=>{navigation.goBack()}} title='Geri' ></Button>
+              
+              </View>
+            )
+          },
+          headerRight:()=>{
+            return(
+              <View style={{marginRight:10}}>
+<TouchableOpacity>
+  <Text style={{color: "white"}}>❤️</Text>
+  </TouchableOpacity>              
+              </View>
+            )
+          }
+        })}  component={UserScreen} />
       <Stack.Screen name="Other" component={OtherScreen} />
     </Stack.Navigator>
    </NavigationContainer>
