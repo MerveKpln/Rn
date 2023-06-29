@@ -1,11 +1,11 @@
 
 import React, { useEffect } from 'react';
-import {View, Text,Button, TouchableOpacity} from "react-native";
+import {View, Text, TouchableOpacity, TextInput} from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+const Tab = createMaterialTopTabNavigator();
 
-const Tab =createBottomTabNavigator();
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -24,7 +24,7 @@ function HomeScreen({ navigation }) {
       alignItems:"center"
     }}>
       <Text>User Screen  </Text>
-    
+    <TextInput style={{height:40, width:"100%", borderWidth:2}}/>
     </View>
   )}
 
@@ -82,7 +82,7 @@ function MyTabBar({ state, descriptors, navigation }) {
 const App =()=>{
   return(
    <NavigationContainer>
-    <Tab.Navigator  tabBar={props => <MyTabBar {...props}  /> }initialRouteName='Home'>
+    <Tab.Navigator   tabBarPosition='bottom'  tabBar={props => <MyTabBar {...props}  /> }initialRouteName='Home'>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="User" component={UserScreen} />
       <Tab.Screen name="Other" component={OtherScreen} />
