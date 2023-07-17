@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "drawer_stack_tab";
+    return "Drawer_Stack_Tab";
   }
 
   /**

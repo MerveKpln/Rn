@@ -94,7 +94,7 @@ const App=()=>{
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name='DrawerHome' component={BottomNavigator}/>
-        <Drawer.Screen name='d' component={StackFourNavigator}/>
+        <Drawer.Screen name='DrawerOther' component={StackFourNavigator}/>
       </Drawer.Navigator>
     </NavigationContainer>
   )
