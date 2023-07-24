@@ -2,14 +2,19 @@
 import React from "react";
 
 import {  Text, View } from 'react-native';
+import {NavigationContainer} from "@react-navigation/native";
 
+
+const nav =NavigationContainer();
 
 const App=()=>{
   return(
     <>
-    
+    <View>
+      <Text>Status Bar</Text>
+    </View>
 
-    
+
     <View style={{ flex:1, flexDirection:"row" }}>
       <View style={{backgroundColor:"blue", flex:2, height:100,alignItems:"center" ,flexDirection:'row'}}>
 <Text>Kutu 1</Text>
