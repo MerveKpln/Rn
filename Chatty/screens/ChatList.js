@@ -1,9 +1,17 @@
 import React from "react"
-import { Text } from "react-native";
+import { Text, View } from "react-native";
+import { Avatar, Divider, List } from 'react-native-paper';
 
 const ChatList = ()=>{
 return(
-    <Text>Hi, ChatList</Text>
+    <View>
+        <List.Item
+         title="User Name"
+         description="Hi, I will be waiting for you"
+         left={()=><Avatar.Text label="UN" size={57}/> }
+        />
+       
+    </View>
 )
 }
 
