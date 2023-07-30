@@ -1,9 +1,15 @@
 import React from "react"
-import { Text } from "react-native";
+import {  View } from "react-native";
+import { Avatar, Button, Subheading, Title } from "react-native-paper";
 
 const Settings = ()=>{
 return(
-    <Text>Hi, Settings</Text>
+    <View style={{alignItems:"center", marginTop:16}}>
+        <Avatar.Text label="UN"/>
+        <Title>User Name </Title>
+        <Subheading>user@name.com</Subheading>
+        <Button>Sign Out</Button>
+    </View>
 )
 }
 

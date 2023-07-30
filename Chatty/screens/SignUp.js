@@ -1,9 +1,16 @@
 import React from "react"
-import { Text } from "react-native";
+import {  View } from "react-native";
+import { TextInput } from "react-native-paper";
 
 const SignUp = ()=>{
 return(
-    <Text>Hi, SignUp</Text>
+    <View>
+
+        <TextInput label={"Name"}/>
+        <TextInput label={"Email"} style={{marginTop:12}}/>
+        <TextInput label={"Password"}/>
+        
+    </View>
 )
 }
 
