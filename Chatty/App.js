@@ -12,7 +12,21 @@ import SignIn from "./screens/SignIn"
 import SignUp from "./screens/SignUp"
 import Settings from "./screens/Settings"
 import { Provider } from "react-native-paper"
+import firebase from "firebase/app"
+import  "firebase/auth"
+import  "firebase/firestore"
 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAb3p6bGoKy-2_1HNCYhoBHakBnxqWhb98",
+  authDomain: "chat-app-a2097.firebaseapp.com",
+  projectId: "chat-app-a2097",
+  storageBucket: "chat-app-a2097.appspot.com",
+  messagingSenderId: "227902988493",
+  appId: "1:227902988493:web:b7fdc00577101086470984"
+};
+
+firebase.initializeApp(firebaseConfig)
 
 const Stack = createNativeStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -52,7 +66,7 @@ const App =() =>{
             <Stack.Screen name="Chat" component={Chat} />
             <Stack.Screen name="SignUp" component={SignUp} options={{presentation:'fullScreenModal'}} />
             <Stack.Screen name="SignIn" component={SignIn} options={{presentation:'fullScreenModal'}} />
-          </Stack.Navigator>1
+          </Stack.Navigator>
           </Provider>
       </NavigationContainer>
   )
